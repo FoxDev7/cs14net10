@@ -86,5 +86,21 @@ WriteLine($"x ^ y      | {x ^ y,7} | {x ^ y:B8}");
 
 // Left-shift x by three bit columns.
 
+WriteLine($"x << 3     | {x << 3,7} | {x << 3:B8}");
+// Multiply by 8.
+WriteLine($"x * 8      | {x * 8,7} | {x * 8:B8}");
+// Right-shift y by one bit column.
+WriteLine($"y >> 1     | {y >> 1,7} | {y >> 1:B8}");
+
+
+#endregion
+
+
+#region Miscellaneous operators
+
+int age = 50;
+WriteLine($"The {nameof(age)} variable uses {sizeof(int)} bytes of memory");
+
+char firstDigit = age.ToString()[0];
 
 #endregion
