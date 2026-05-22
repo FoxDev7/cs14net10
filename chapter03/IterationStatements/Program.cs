@@ -40,6 +40,6 @@ for (int y = 0; y <= 10; y +=3)
 List<string> names = ["Adam", "Barry", "Charlie"];
 foreach (string name in names)
 {
-  WriteLine($"{name} has {name.Length} charaters");
+  WriteLine($"{name} has {name.Length} characters");
 }
 
