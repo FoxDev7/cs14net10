@@ -1,4 +1,5 @@
 ﻿using static System.Convert; // To use the ToInt32 method
+using System.Globalization; // To use CultureInfo
 
 int a = 10;
 double b = a; // An int can be safely cast into a double
@@ -78,3 +79,54 @@ foreach (double n in doubles)
       mode: MidpointRounding.AwayFromZero)
   );
 }
+
+// Convert type to String
+int number = 12;
+WriteLine(number.ToString());
+bool boolean = true;
+WriteLine(boolean.ToString());
+DateTime now = DateTime.Now;
+WriteLine(now.ToString());
+object me = new();
+WriteLine(me.ToString());
+
+// Base64 Convert
+
+// Allocate an array of 128 bytes
+byte[] binaryObject = new byte[128];
+// Populate the array with random bytes
+Random.Shared.NextBytes(binaryObject);
+
+WriteLine("Binary Object as bytes:");
+for (int index = 0; index < binaryObject.Length; index++)
+{
+  Write($"{binaryObject[index]:X2} ");
+}
+WriteLine();
+// Convert the array to Base64 string and output as text
+string encoded = ToBase64String(binaryObject);
+WriteLine($"Binary Object as Base64: {encoded}");
+
+// Parse integer and a date and time
+// Set the current culture to make sure date parsing works.
+CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+int friends = int.Parse("27");
+DateTime birthday = DateTime.Parse("4 June 1980");
+WriteLine($"I have {friends} friends to invite to my party.");
+WriteLine($"My birthday is {birthday}.");
+WriteLine($"My birthday is {birthday:D}.");
+
+Write("How many eggs are there? ");
+string? input = ReadLine();
+if (int.TryParse(input, out int count))
+{
+  WriteLine($"There are {count} eggs.");
+}
+else
+{
+  WriteLine("I could not parse the input");
+}
+
+
+
+
